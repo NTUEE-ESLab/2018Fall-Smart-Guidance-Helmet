@@ -80,7 +80,7 @@ http://ceres-solver.org/installation.html
 + raspivid (enable camera in rpi)
 
 ### Build the project
-#### Run gaze tracking
+#### 1. Run gaze tracking
 ```
 (PC) $ git clone https://github.com/NTUEE-ESLab/2018Fall_Smart-Guidance-Helmet.git
 (PC) $ cd 2018Fall_Smart-Guidance-Helmet/gaze-tracking
@@ -97,9 +97,9 @@ http://ceres-solver.org/installation.html
 + ```r```: Resets the 3D eye model and 2D observations and restarts the initialization step
 + ```ESC```: Exit the program
 
-#### Run eye direction UI
+#### 2. Run eye direction UI
 ```
-(PC) $ cd 2018Fall_Smart-Guidance-Helmet/eye-tracking-UI
+(PC) $ cd 2018Fall_Smart-Guidance-Helmet/eye-direction-UI
 (PC) $ qmake; make
 (PC) $ ./eyedirection2
 ```
