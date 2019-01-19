@@ -1,7 +1,7 @@
 # Smart Guidance Helmet
 Eslab final project (2018 Fall) @ National Taiwan University  
 Inspired by [YutaItoh/3D-Eye-Tracker](https://github.com/YutaItoh/3D-Eye-Tracker)  
-Author: **B04901003 許傑盛, B04901059 蔡承佑**
+Author: B04901003 許傑盛, B04901059 蔡承佑
 
 ## Description
 This project aim to use gaze-detection to do something funny and fancy.  
@@ -82,21 +82,32 @@ http://ceres-solver.org/installation.html
 ### Build the project
 #### Run gaze tracking
 ```
-$ git clone https://github.com/NTUEE-ESLab/2018Fall_Smart-Guidance-Helmet.git
-$ cd 2018Fall_Smart-Guidance-Helmet/gaze-tracking
-$ mkdir build; cd build
-$ cmake ..; make
-$ cmake ..; make  # this might happen since it's my first time to write such big project's cmake ...
-$ cd main
-$ ./main
+(PC) $ git clone https://github.com/NTUEE-ESLab/2018Fall_Smart-Guidance-Helmet.git
+(PC) $ cd 2018Fall_Smart-Guidance-Helmet/gaze-tracking
+(PC) $ mkdir build; cd build
+(PC) $ cmake ..; make
+(PC) $ cmake ..; make  # this might happen since it's my first time to write such big project's cmake ...
+(PC) $ cd main
+(Rpi)$ raspivid -cd MJPEG -w 640 -h 480 -b 9000000 -fps 20 -vf -t 0 -o - | gst-launch-1.0 fdsrc ! jpegparse ! rtpjpegpay ! udpsink host=<PC IP> post=5000
+(PC) $ ./main
 ```
+##### Some debug keys are pre-assigned for a better control of the software:
+
++ ```p```: Takes some more 2D pupil observations. Useful when estimated 3D eye model is incorrect due to not-well-distributed 2D observations
++ ```r```: Resets the 3D eye model and 2D observations and restarts the initialization step
++ ```ESC```: Exit the program
 
 #### Run eye direction UI
 ```
-$ cd 2018Fall_Smart-Guidance-Helmet/eye-tracking-UI
-$ qmake; make
-$ ./eyedirection2
+(PC) $ cd 2018Fall_Smart-Guidance-Helmet/eye-tracking-UI
+(PC) $ qmake; make
+(PC) $ ./eyedirection2
 ```
+
+## Acknowledgements
++ [Windows base 3D-Eye-Tracker](https://github.com/YutaItoh/3D-Eye-Tracker) by YutaItoh
++ [2D pupil detection code](http://www.jeoresearch.com/research) by Jason Orlosky
++ [3D eye ball algorithm](https://github.com/LeszekSwirski/singleeyefitter) by LeszekSwirski
 
 
 
